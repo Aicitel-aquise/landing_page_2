@@ -1,21 +1,33 @@
-# Pulso Club | Club deportivo
+# 🏋️ Pulso Club | Club Deportivo
 
-Landing page académica para un club deportivo y gimnasio. Incluye clases, horarios, rutinas sugeridas, entrenadores, planes de inscripción y contacto. Los horarios y planes se presentan como contenido demostrativo.
+![Pulso Club Banner](https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=1200&auto=format&fit=crop)
 
-## Integrantes
-- Paula Alvarez
-- Leticia Aquise
-- Angela Mamani
+> Landing page académica interactiva para un club deportivo y gimnasio. Incluye secciones de clases especializadas, horarios, rutinas sugeridas, entrenadores expertos, planes de membresía e información de contacto y ubicación. *(Nota: Los horarios y planes presentados son de carácter demostrativo).*
 
-## Docente
-Lic. Erik Huallpa
+---
 
-## Tecnologías
-- HTML5 semántico
-- CSS3 embebido (Grid, Flexbox y media queries)
+## 👥 Integrantes
+* **Paula Alvarez**
+* **Leticia Aquise**
+* **Angela Mamani**
 
-## Cómo visualizarlo
-Abre `index.html` directamente en un navegador. Las fotografías y tipografías se cargan desde servicios externos, por lo que requieren conexión a Internet.
+## 👨‍🏫 Docente
+* **Lic. Erik Huallpa**
 
-## Fecha
-29 de octubre de 2026
+---
+
+## 🛠️ Tecnologías Utilizadas
+* **HTML5 Semántico:** Estructura de contenido accesible y organizada.
+* **CSS3 Embebido:** Diseño responsivo adaptado mediante **Grid**, **Flexbox** y **Media Queries**.
+
+---
+
+## 🚀 Cómo Visualizar el Proyecto
+1. Clona o descarga el repositorio en tu equipo local.
+2. Abre el archivo `index.html` directamente en tu navegador web preferido.
+> ⚠️ **Nota:** Requiere conexión a Internet para cargar las tipografías de Google Fonts y las imágenes de alta calidad desde Unsplash.
+
+---
+
+## 📅 Fecha
+* **29 de octubre de 2026**
