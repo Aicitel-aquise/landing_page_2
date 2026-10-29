@@ -1,215 +1,698 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Alto Rendimiento | Proyecto Deporte - INS-600</title>
+    <title>ForgeFit | Club Deportivo & Gimnasio Premium</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
-    
+    <link href="https://fonts.googleapis.com/css2?family=Tourney:wght@600;700;800;900&family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary: #ff3e3e;
-            --primary-dark: #b30000;
-            --accent: #ffb703;
-            --bg-dark: #0a0e17;
-            --card-bg: #161f30;
-            --text-light: #f8f9fa;
-            --text-muted: #94a3b8;
+            --primary: #ff3c00;
+            --secondary: #ff6b35;
+            --accent: #ffa500;
+            --bg-dark: #0f0f0f;
+            --bg-section: #151515;
+            --card-bg: #1f1f1f;
+            --text-light: #ffffff;
+            --text-muted: #a0a0a0;
+            --border: #2a2a2a;
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
 
         body {
-            font-family: 'Roboto', sans-serif;
+            font-family: 'Barlow', sans-serif;
             background-color: var(--bg-dark);
             color: var(--text-light);
-            line-height: 1.6;
+            line-height: 1.7;
         }
 
         header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 1.5rem 8%;
-            background: rgba(10, 14, 23, 0.95);
-            backdrop-filter: blur(10px);
+            padding: 1.2rem 7%;
+            background: rgba(15, 15, 15, 0.98);
+            backdrop-filter: blur(12px);
             position: fixed;
             width: 100%;
             top: 0;
             z-index: 1000;
-            border-bottom: 2px solid var(--primary);
+            border-bottom: 3px solid var(--primary);
         }
 
         .logo {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 1.6rem;
+            font-family: 'Tourney', sans-serif;
+            font-size: 1.9rem;
             font-weight: 900;
-            color: var(--text-light);
+            color: var(--primary);
+            letter-spacing: 2px;
             text-transform: uppercase;
-            letter-spacing: 1px;
         }
 
-        .logo span { color: var(--primary); }
-
-        nav ul { display: flex; list-style: none; gap: 2rem; }
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2.5rem;
+        }
 
         nav a {
             color: var(--text-light);
             text-decoration: none;
-            font-weight: 500;
-            transition: color 0.3s;
+            font-weight: 700;
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: color 0.3s ease;
         }
 
-        nav a:hover { color: var(--accent); }
+        nav a:hover {
+            color: var(--primary);
+        }
 
         .hero {
             min-height: 100vh;
             display: flex;
             align-items: center;
-            justify-content: center;
-            text-align: center;
-            padding: 8rem 2rem 4rem;
-            background: linear-gradient(180deg, rgba(255, 62, 62, 0.15) 0%, rgba(10, 14, 23, 1) 85%);
+            padding: 9rem 7% 5rem;
+            background: linear-gradient(110deg, rgba(255, 60, 0, 0.2) 0%, rgba(15, 15, 15, 1) 65%),
+                        url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=1920&h=1080&fit=crop') center/cover;
+            background-blend-mode: overlay;
+        }
+
+        .hero-content {
+            max-width: 700px;
+        }
+
+        .hero-content .badge {
+            display: inline-block;
+            padding: 0.6rem 1.8rem;
+            background: linear-gradient(90deg, var(--primary) 0%, var(--secondary) 100%);
+            color: var(--text-light);
+            font-weight: 800;
+            margin-bottom: 2rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-size: 0.85rem;
+            clip-path: polygon(10px 0%, 100% 0%, calc(100% - 10px) 100%, 0% 100%);
         }
 
         .hero-content h1 {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 3.8rem;
+            font-family: 'Tourney', sans-serif;
+            font-size: clamp(2.8rem, 6vw, 4.5rem);
             font-weight: 900;
-            text-transform: uppercase;
             line-height: 1.1;
             margin-bottom: 1.5rem;
-            letter-spacing: -1px;
+            text-transform: uppercase;
+        }
+
+        .hero-content h1 .highlight {
+            color: var(--primary);
+            display: block;
         }
 
         .hero-content p {
-            font-size: 1.2rem;
+            font-size: 1.3rem;
             color: var(--text-muted);
-            max-width: 650px;
-            margin: 0 auto 2.5rem;
+            margin-bottom: 2.5rem;
+            max-width: 580px;
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
         }
 
         .btn {
             display: inline-block;
-            padding: 1rem 2.5rem;
-            border-radius: 4px;
-            background: var(--primary);
-            color: #fff;
+            padding: 1.1rem 2.8rem;
             text-decoration: none;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            box-shadow: 0 8px 20px rgba(255, 62, 62, 0.4);
+            font-weight: 800;
+            font-size: 1rem;
             transition: all 0.3s ease;
-        }
-
-        .btn:hover {
-            background: var(--primary-dark);
-            transform: translateY(-3px);
-            box-shadow: 0 12px 25px rgba(255, 62, 62, 0.6);
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 5rem 2rem;
-        }
-
-        .section-title {
-            text-align: center;
-            font-family: 'Montserrat', sans-serif;
-            font-size: 2.2rem;
             text-transform: uppercase;
-            margin-bottom: 3rem;
+            letter-spacing: 2px;
+            clip-path: polygon(12px 0%, 100% 0%, calc(100% - 12px) 100%, 0% 100%);
         }
 
-        .section-title span { color: var(--primary); }
+        .btn-primary {
+            background: linear-gradient(90deg, var(--primary) 0%, var(--secondary) 100%);
+            color: var(--text-light);
+            box-shadow: 0 12px 40px rgba(255, 60, 0, 0.4);
+        }
 
-        .grid {
+        .btn-primary:hover {
+            transform: skewX(-5deg) translateY(-3px);
+            box-shadow: 0 18px 50px rgba(255, 60, 0, 0.5);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--text-light);
+            border: 3px solid var(--primary);
+        }
+
+        .btn-outline:hover {
+            background: var(--primary);
+        }
+
+        section {
+            padding: 6rem 7%;
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 750px;
+            margin: 0 auto 4rem;
+        }
+
+        .section-header .subtitle {
+            color: var(--primary);
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            font-size: 0.9rem;
+            display: block;
+            margin-bottom: 1rem;
+        }
+
+        .section-header h2 {
+            font-family: 'Tourney', sans-serif;
+            font-size: clamp(2.2rem, 4.5vw, 3.2rem);
+            font-weight: 900;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+        }
+
+        .section-header p {
+            color: var(--text-muted);
+            font-size: 1.15rem;
+        }
+
+        .classes {
+            background: var(--bg-section);
+        }
+
+        .classes-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 2rem;
         }
 
-        .card {
+        .class-card {
             background: var(--card-bg);
-            border-radius: 8px;
+            border-radius: 4px;
+            overflow: hidden;
+            border: 2px solid var(--border);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .class-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary) 0%, var(--accent) 100%);
+        }
+
+        .class-card:hover {
+            transform: scale(1.02);
+            border-color: var(--primary);
+            box-shadow: 0 20px 60px rgba(255, 60, 0, 0.25);
+        }
+
+        .class-header {
+            padding: 2rem 2rem 1rem;
+        }
+
+        .class-header h3 {
+            font-family: 'Tourney', sans-serif;
+            font-size: 1.7rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+        }
+
+        .class-header .intensity {
+            display: inline-block;
+            padding: 0.3rem 1rem;
+            background: rgba(255, 60, 0, 0.2);
+            color: var(--primary);
+            font-weight: 700;
+            font-size: 0.85rem;
+        }
+
+        .class-body {
+            padding: 0 2rem 2rem;
+        }
+
+        .class-body p {
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+        }
+
+        .class-features {
+            display: flex;
+            flex-direction: column;
+            gap: 0.7rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .class-features span {
+            color: var(--text-light);
+            font-weight: 600;
+        }
+
+        .trainers {
+            background: var(--bg-dark);
+        }
+
+        .trainers-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 2rem;
+        }
+
+        .trainer-card {
+            text-align: center;
+            background: var(--card-bg);
             padding: 2.5rem 2rem;
-            border-left: 4px solid var(--primary);
-            transition: transform 0.3s ease;
+            border: 2px solid var(--border);
+            transition: all 0.3s ease;
+            position: relative;
         }
 
-        .card:hover { transform: translateY(-8px); }
+        .trainer-card:hover {
+            border-color: var(--primary);
+            background: linear-gradient(180deg, var(--card-bg) 0%, rgba(255, 60, 0, 0.08) 100%);
+        }
 
-        .card-icon { font-size: 2.8rem; margin-bottom: 1rem; }
+        .trainer-avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            margin: 0 auto 1.5rem;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            border: 4px solid var(--primary);
+        }
 
-        .card h3 {
-            font-family: 'Montserrat', sans-serif;
+        .trainer-card h3 {
+            font-family: 'Tourney', sans-serif;
             font-size: 1.4rem;
-            margin-bottom: 0.8rem;
+            font-weight: 800;
+            margin-bottom: 0.3rem;
+            text-transform: uppercase;
         }
 
-        .card p { color: var(--text-muted); font-size: 0.95rem; }
+        .trainer-card .role {
+            color: var(--primary);
+            font-weight: 700;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.9rem;
+        }
+
+        .trainer-card p {
+            color: var(--text-muted);
+        }
+
+        .plans {
+            background: linear-gradient(to bottom, var(--bg-dark) 0%, var(--bg-section) 100%);
+        }
+
+        .plans-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .plan-card {
+            background: var(--card-bg);
+            padding: 2.5rem 2rem;
+            border: 2px solid var(--border);
+            text-align: center;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .plan-card.featured {
+            border-color: var(--primary);
+            transform: scale(1.05);
+            box-shadow: 0 25px 70px rgba(255, 60, 0, 0.3);
+        }
+
+        .plan-card.featured::before {
+            content: 'MÁS POPULAR';
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(90deg, var(--primary) 0%, var(--secondary) 100%);
+            padding: 0.4rem 1.5rem;
+            font-weight: 800;
+            font-size: 0.8rem;
+            letter-spacing: 2px;
+        }
+
+        .plan-card:hover {
+            border-color: var(--primary);
+        }
+
+        .plan-name {
+            font-family: 'Tourney', sans-serif;
+            font-size: 1.6rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+        }
+
+        .plan-price {
+            font-size: 3rem;
+            font-weight: 900;
+            color: var(--primary);
+            font-family: 'Tourney', sans-serif;
+            margin-bottom: 0.5rem;
+        }
+
+        .plan-price span {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+        }
+
+        .plan-features {
+            list-style: none;
+            margin: 2rem 0;
+            text-align: left;
+        }
+
+        .plan-features li {
+            padding: 0.8rem 0;
+            border-bottom: 1px solid var(--border);
+            color: var(--text-light);
+        }
+
+        .plan-features li::before {
+            content: '✓';
+            color: var(--primary);
+            font-weight: 800;
+            margin-right: 0.8rem;
+        }
 
         footer {
-            text-align: center;
-            padding: 3rem 2rem;
-            background: #05070c;
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            background: var(--bg-dark);
+            padding: 3rem 7% 2rem;
+            border-top: 3px solid var(--primary);
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-logo {
+            font-family: 'Tourney', sans-serif;
+            font-size: 1.6rem;
+            font-weight: 900;
+            color: var(--primary);
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
             color: var(--text-muted);
-            font-size: 0.9rem;
+            text-decoration: none;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border);
+            color: var(--text-muted);
+        }
+
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                gap: 1rem;
+                padding: 1rem 5%;
+            }
+
+            nav ul {
+                gap: 1rem;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            nav a {
+                font-size: 0.85rem;
+            }
+
+            .hero {
+                padding: 11rem 5% 4rem;
+                text-align: center;
+            }
+
+            .hero-content {
+                max-width: 100%;
+            }
+
+            .btn-group {
+                justify-content: center;
+            }
+
+            section {
+                padding: 4rem 5%;
+            }
+
+            .plan-card.featured {
+                transform: scale(1);
+            }
+
+            .footer-content {
+                flex-direction: column;
+                text-align: center;
+            }
         }
     </style>
 </head>
 <body>
-
     <header>
-        <div class="logo">Sport<span>Zone</span></div>
+        <div class="logo">FORGEFIT</div>
         <nav>
             <ul>
                 <li><a href="#inicio">Inicio</a></li>
-                <li><a href="#disciplinas">Disciplinas</a></li>
+                <li><a href="#clases">Clases</a></li>
+                <li><a href="#entrenadores">Entrenadores</a></li>
+                <li><a href="#planes">Planes</a></li>
             </ul>
         </nav>
     </header>
 
-    <section id="inicio" class="hero">
-        <div class="hero-content">
-            <h1>Supera Tus Límites Cada Día</h1>
-            <p>Plataforma de análisis y seguimiento deportivo desarrollada para la materia INS-600. Disciplina, rendimiento y pasión.</p>
-            <a href="#disciplinas" class="btn">Ver Disciplinas</a>
-        </div>
-    </section>
+    <main>
+        <section id="inicio" class="hero">
+            <div class="hero-content">
+                <span class="badge">Sin Excusas • Sin Límites</span>
+                <h1>FORJA TU <span class="highlight">CUERPO</span> FORJA TU <span class="highlight">MENTE</span></h1>
+                <p>Club deportivo de élite donde el compromiso se transforma en resultados. Entrena con los mejores, supera tus límites y alcanza tu máximo potencial.</p>
+                <div class="btn-group">
+                    <a href="#planes" class="btn btn-primary">Inscríbete Ahora</a>
+                    <a href="#clases" class="btn btn-outline">Ver Clases</a>
+                </div>
+            </div>
+        </section>
 
-    <main class="container">
-        <h2 id="disciplinas" class="section-title">Disciplinas <span>Destacadas</span></h2>
-        
-        <div class="grid">
-            <article class="card">
-                <div class="card-icon">⚽</div>
-                <h3>Fútbol Profesional</h3>
-                <p>Estrategia, trabajo en equipo y preparación física de alto rendimiento orientada a la competición táctica.</p>
-            </article>
+        <section id="clases" class="classes">
+            <header class="section-header">
+                <span class="subtitle">Programa de Entrenamiento</span>
+                <h2>Nuestras Clases</h2>
+                <p>Variedad de disciplinas diseñadas para todos los niveles, desde principiantes hasta atletas avanzados</p>
+            </header>
+            <div class="classes-grid">
+                <article class="class-card">
+                    <div class="class-header">
+                        <h3>CrossForge</h3>
+                        <span class="intensity">ALTA INTENSIDAD</span>
+                    </div>
+                    <div class="class-body">
+                        <p>Entrenamiento funcional de alta intensidad que combina cardio, fuerza y agilidad para maximizar quema calórica.</p>
+                        <div class="class-features">
+                            <span>⏱️ 60 min</span>
+                            <span>🔥 Quema 800-1000 cal</span>
+                            <span>👥 Grupos reducidos</span>
+                        </div>
+                        <a href="#planes" class="btn btn-outline" style="width: 100%; text-align: center;">Reservar Clase</a>
+                    </div>
+                </article>
+                <article class="class-card">
+                    <div class="class-header">
+                        <h3>Iron Strength</h3>
+                        <span class="intensity">FUERZA PURA</span>
+                    </div>
+                    <div class="class-body">
+                        <p>Levantamiento olímpico y powerlifting con técnica correcta. Desarrolla fuerza funcional y masa muscular.</p>
+                        <div class="class-features">
+                            <span>⏱️ 75 min</span>
+                            <span>💪 Enfoque en técnica</span>
+                            <span>🏋️ Equipamiento profesional</span>
+                        </div>
+                        <a href="#planes" class="btn btn-outline" style="width: 100%; text-align: center;">Reservar Clase</a>
+                    </div>
+                </article>
+                <article class="class-card">
+                    <div class="class-header">
+                        <h3>Combat Edge</h3>
+                        <span class="intensity">CARDIO COMBATIVO</span>
+                    </div>
+                    <div class="class-body">
+                        <p>Boxeo, Muay Thai y Kickboxing. Mejora coordinación, resistencia y defensa personal con ritmo explosivo.</p>
+                        <div class="class-features">
+                            <span>⏱️ 55 min</span>
+                            <span>🥊 Técnica + Cardio</span>
+                            <span>⚡ Alta energía</span>
+                        </div>
+                        <a href="#planes" class="btn btn-outline" style="width: 100%; text-align: center;">Reservar Clase</a>
+                    </div>
+                </article>
+            </div>
+        </section>
 
-            <article class="card">
-                <div class="card-icon">🏀</div>
-                <h3>Baloncesto</h3>
-                <p>Velocidad, precisión en el tiro y agilidad dinámica para dominar ambos lados de la cancha.</p>
-            </article>
+        <section id="entrenadores" class="trainers">
+            <header class="section-header">
+                <span class="subtitle">Equipo Elite</span>
+                <h2>Nuestros Entrenadores</h2>
+                <p>Profesionales certificados con experiencia en alto rendimiento y transformación física</p>
+            </header>
+            <div class="trainers-grid">
+                <article class="trainer-card">
+                    <div class="trainer-avatar">💪</div>
+                    <h3>Marco Rivas</h3>
+                    <div class="role">Head Coach • CrossFit L3</div>
+                    <p>Especialista en acondicionamiento funcional con más de 10 años transformando atletas</p>
+                </article>
+                <article class="trainer-card">
+                    <div class="trainer-avatar">🥊</div>
+                    <h3>Daniela Cruz</h3>
+                    <div class="role">Combat Coach • Pro Fighter</div>
+                    <p>Ex-campeona nacional de Muay Thai, experta en técnica y preparación física</p>
+                </article>
+                <article class="trainer-card">
+                    <div class="trainer-avatar">🏋️</div>
+                    <h3>Andrés Molina</h3>
+                    <div class="role">Strength Coach • NSCA-CSCS</div>
+                    <p>Especializado en powerlifting, hipertrofia y rehabilitación deportiva</p>
+                </article>
+                <article class="trainer-card">
+                    <div class="trainer-avatar">🏃</div>
+                    <h3>Carla Torres</h3>
+                    <div class="role">Mobility Expert • FRC Certified</div>
+                    <p>Enfoque integral en movilidad, recuperación y prevención de lesiones</p>
+                </article>
+            </div>
+        </section>
 
-            <article class="card">
-                <div class="card-icon">🏃</div>
-                <h3>Atletismo & Running</h3>
-                <p>Resistencia cardiaca, control de tiempos y optimización del rendimiento en carreras de velocidad y fondo.</p>
-            </article>
-        </div>
+        <section id="planes" class="plans">
+            <header class="section-header">
+                <span class="subtitle">Membresías</span>
+                <h2>Planes de Inscripción</h2>
+                <p>Elige el plan que se adapte a tus objetivos y comienza tu transformación hoy</p>
+            </header>
+            <div class="plans-grid">
+                <article class="plan-card">
+                    <h3 class="plan-name">Básico</h3>
+                    <div class="plan-price">Bs. 450<span>/mes</span></div>
+                    <p style="color: var(--text-muted);">Ideal para empezar</p>
+                    <ul class="plan-features">
+                        <li>Acceso a sala de pesas</li>
+                        <li>Cardio zone</li>
+                        <li>Vestuarios y duchas</li>
+                        <li>Horario limitado</li>
+                        <li>Sin clases grupales</li>
+                    </ul>
+                    <a href="mailto:inscripciones@forgefit.com" class="btn btn-outline" style="width: 100%; text-align: center;">Seleccionar Plan</a>
+                </article>
+                <article class="plan-card featured">
+                    <h3 class="plan-name">Pro</h3>
+                    <div class="plan-price">Bs. 750<span>/mes</span></div>
+                    <p style="color: var(--text-muted);">Más completo y popular</p>
+                    <ul class="plan-features">
+                        <li>Acceso ilimitado 24/7</li>
+                        <li>Clases grupales ilimitadas</li>
+                        <li>Zona funcional completa</li>
+                        <li>Asesoría inicial gratuita</li>
+                        <li>Acceso a área de recuperación</li>
+                        <li>Invitado 2x/mes</li>
+                    </ul>
+                    <a href="mailto:inscripciones@forgefit.com" class="btn btn-primary" style="width: 100%; text-align: center;">Seleccionar Plan</a>
+                </article>
+                <article class="plan-card">
+                    <h3 class="plan-name">Elite</h3>
+                    <div class="plan-price">Bs. 1100<span>/mes</span></div>
+                    <p style="color: var(--text-muted);">Máximo rendimiento</p>
+                    <ul class="plan-features">
+                        <li>Todo lo del plan Pro</li>
+                        <li>Entrenamiento personalizado</li>
+                        <li>Plan nutricional incluido</li>
+                        <li>Seguimiento semanal</li>
+                        <li>Acceso a spa & sauna</li>
+                        <li>Locker privado</li>
+                    </ul>
+                    <a href="mailto:inscripciones@forgefit.com" class="btn btn-outline" style="width: 100%; text-align: center;">Seleccionar Plan</a>
+                </article>
+            </div>
+        </section>
     </main>
 
     <footer>
-        <p>&copy; 2026 Proyecto Deporte — INS-600. Desarrollado por Leticia Aquise Taco.</p>
+        <div class="footer-content">
+            <div class="footer-logo">FORGEFIT CLUB</div>
+            <ul class="footer-links">
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#clases">Clases</a></li>
+                <li><a href="#entrenadores">Entrenadores</a></li>
+                <li><a href="#planes">Planes</a></li>
+            </ul>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 ForgeFit Club Deportivo. Todos los derechos reservados. | Ingeniería de Software INS-600</p>
+        </div>
     </footer>
-
 </body>
 </html>
